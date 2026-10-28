@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+
+# 自己的私有数据不要传上来
+data/private*.json
+data/my*.json

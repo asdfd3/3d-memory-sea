@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>记忆海 · Memory Sea</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #05060b; overflow: hidden; }
+  body { font: 13px/1.5 "Segoe UI", "Microsoft YaHei", system-ui, sans-serif; color: #cfd6e4; }
+  #sea { position: fixed; inset: 0; display: block; }
+  .hud { position: fixed; z-index: 3; background: rgba(10, 13, 22, .72); border: 1px solid rgba(120, 160, 255, .18);
+         border-radius: 12px; backdrop-filter: blur(8px); }
+  #top { top: 16px; left: 16px; padding: 12px 16px; max-width: 380px; }
+  #top h1 { margin: 0 0 4px; font-size: 15px; font-weight: 600; letter-spacing: .12em; color: #9fc1ff; }
+  #top .sub { color: #6d7891; font-size: 12px; }
+  #top .stats { margin-top: 8px; display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: #8e9ab5; }
+  #top .stats b { color: #dbe6ff; font-weight: 600; }
+  #detail { right: 16px; bottom: 16px; width: 320px; padding: 12px 14px; display: none; pointer-events: none; }
+  #detail.on { display: block; }
+  #detail .k { color: #6d7891; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+  #detail .text { margin: 6px 0 10px; color: #e8eeff; font-size: 14px; line-height: 1.6; word-break: break-word; white-space: pre-wrap; }
+  #detail .row { display: flex; gap: 10px; flex-wrap: wrap; color: #7f8aa5; font-size: 12px; }
+  #detail .tags span { display: inline-block; margin: 0 6px 6px 0; padding: 1px 8px; border-radius: 999px;
+                       background: rgba(120, 160, 255, .12); color: #a9c1ff; font-size: 11px; }
+  #tools { left: 16px; bottom: 16px; padding: 8px; display: flex; gap: 6px; align-items: center; }
+  #tools button { background: rgba(120, 160, 255, .1); color: #b8c9ee; border: 1px solid rgba(120, 160, 255, .22);
+                  border-radius: 8px; padding: 5px 10px; font-size: 12px; cursor: pointer; }
+  #tools button:hover { background: rgba(120, 160, 255, .2); }
+  #tools button.on { background: rgba(120, 160, 255, .3); color: #fff; }
+  #hint { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); color: #4d566d; font-size: 12px; z-index: 2; }
+  #error { position: fixed; inset: 0; display: none; place-items: center; z-index: 5; color: #ff9a9a; font-size: 14px; }
+</style>
+</head>
+<body>
+<canvas id="sea"></canvas>
+
+<div class="hud" id="top">
+  <h1>记忆海</h1>
+  <div class="sub">她经历过的每一件事，都是一个点</div>
+  <div class="stats" id="stats"></div>
+</div>
+
+<div class="hud" id="detail">
+  <div class="k" id="dKind">经历</div>
+  <div class="text" id="dText"></div>
+  <div class="row"><span id="dTime"></span><span id="dTopic"></span><span id="dSource"></span></div>
+  <div class="tags" id="dTags"></div>
+</div>
+
+<div class="hud" id="tools">
+  <button id="btnFocus" class="on" title="只把本轮检索命中的点连亮">高亮焦点</button>
+  <button id="btnLabels" class="on" title="显示/隐藏每个点旁边的经历文字">标签</button>
+  <button id="btnRecent" title="只看最近 300 个点">最近 300</button>
+  <button id="btnReset" title="回到初始视角">复位</button>
+</div>
+<div id="hint">滚轮拉近拉远 · 左键拖动旋转 · 右键拖动平移 · 点一颗星看原文</div>
+<div id="error"></div>
+
+<script>
+(() => {
+  const params = new URLSearchParams(location.search);
+  const canvas = document.getElementById('sea');
+  const ctx = canvas.getContext('2d');
+  const elStats = document.getElementById('stats');
+  const elError = document.getElementById('error');
+  const detail = document.getElementById('detail');
+
+  const KIND_LABEL = { event: '经历', feeling: '心情', fact: '事实', plan: '约定', conclusion: '结论' };
+  const KIND_COLOR = {
+    event: [150, 190, 255], feeling: [255, 160, 210], fact: [130, 230, 200],
+    plan: [255, 210, 140], conclusion: [190, 165, 255],
+  };
+  const DIARY_COLOR = [255, 205, 120];
+
+  let scene = null;
+  let points = [];
+  let edges = [];
+  let focus = new Set();
+  const FOCAL = 1100;
+  const CAM_DEFAULT = { yaw: 0.45, pitch: -0.30, dist: 1200, panX: 0, panY: 0 };
+  let cam = { ...CAM_DEFAULT };
+  let lastPos = new Map();
+  let dragging = null;
+  let dragMoved = false;
+  let hovered = null;
+  let selected = null;
+  let onlyFocus = false;
+  let showLabels = true;
+  let lastFetch = 0;
+
+  const hash = (str) => {
+    let h = 2166136261;
+    for (let i = 0; i < str.length; i += 1) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+    return h >>> 0;
+  };
+  const rand = (str) => (hash(str) % 100000) / 100000;
+
+  function resize() {
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    canvas.width = Math.floor(innerWidth * dpr);
+    canvas.height = Math.floor(innerHeight * dpr);
+    canvas.style.width = innerWidth + 'px';
+    canvas.style.height = innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function layout(list) {
+    // 三维：每个簇占球面上的一个方向，簇内点在各自的小球壳里散开，靠 z 拉开前后。
+    const clusterOf = (point) => point.cluster || (point.topic === 'misc' ? '日常琐事' : point.topic);
+    const topics = [...new Set(list.map(clusterOf))];
+    const centers = new Map();
+    const total = Math.max(1, topics.length);
+    topics.forEach((topic, index) => {
+      // 斐波那契球面：簇与簇之间在三维里均匀铺开
+      const y = total === 1 ? 0 : 1 - (index / (total - 1)) * 2;
+      const ring = Math.sqrt(Math.max(0, 1 - y * y));
+      const phi = index * Math.PI * (3 - Math.sqrt(5)) + rand(topic) * 0.6;
+      const radius = 230 + rand(topic + 'r') * 190;
+      centers.set(topic, {
+        x: Math.cos(phi) * ring * radius,
+        y: y * radius * 0.82,
+        z: Math.sin(phi) * ring * radius,
+      });
+    });
+    list.forEach((point) => {
+      const cluster = clusterOf(point);
+      const center = centers.get(cluster) || { x: 0, y: 0, z: 0 };
+      const a = rand(point.id + 'a') * Math.PI * 2;
+      const b = Math.acos(2 * rand(point.id + 'b') - 1);
+      const rr = 16 + Math.pow(rand(point.id + 'r'), 0.65) * 120;
+      point.x = center.x + Math.sin(b) * Math.cos(a) * rr;
+      point.y = center.y + Math.cos(b) * rr * 0.72;
+      point.z = center.z + Math.sin(b) * Math.sin(a) * rr;
+      point.phase = rand(point.id + 'p') * Math.PI * 2;
+      point.radius = 1.1 + Math.min(2.4, point.weight * 0.55);
+    });
+  }
+
+  function ingest(data) {
+    scene = data;
+    points = (data.points || []).map((p) => ({ ...p }));
+    layout(points);
+    focus = new Set(data.focusIds || []);
+    const byId = new Map(points.map((p) => [p.id, p]));
+    edges = (data.edges || []).filter((e) => byId.has(e.a) && byId.has(e.b));
+    const s = data.stats || {};
+    const span = s.span ? Math.max(1, Math.round((s.span.to - s.span.from) / 86400000)) : 0;
+    elStats.innerHTML = [
+      `点 <b>${s.total || 0}</b>`, `线 <b>${s.edges || edges.length}</b>`,
+      `跨度 <b>${span}</b> 天`, `焦点 <b>${s.focusCount || 0}</b>`,
+    ].join('<span style="color:#2a3245"> | </span>');
+  }
+
+  async function load(rebuild) {
+    try {
+      if (rebuild) await fetch('/api/rebuild', { method: 'POST' });
+      const res = await fetch('/api/scene');
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || '接口返回失败');
+      ingest(data);
+      lastFetch = Date.now();
+      elError.style.display = 'none';
+    } catch (error) {
+      elError.textContent = `读不到场景：${error.message}（请确认服务已在运行）`;
+      elError.style.display = 'grid';
+    }
+  }
+
+  function visiblePoints() {
+    if (onlyFocus && focus.size) return points.filter((p) => focus.has(p.id) || true);
+    return points;
+  }
+
+  // 三维投影：先绕 Y 轴转（yaw）、再绕 X 轴转（pitch），最后透视除法。
+  function project(point, t) {
+    const drift = onlyFocus ? 0 : 1;
+    const wx = point.x + cam.panX + Math.sin(t / 3200 + point.phase) * 7 * drift;
+    const wy = point.y + cam.panY + Math.cos(t / 4100 + point.phase) * 5 * drift;
+    const wz = point.z + Math.sin(t / 2700 + point.phase * 1.3) * 7 * drift;
+    const cy = Math.cos(cam.yaw);
+    const sy = Math.sin(cam.yaw);
+    const cp = Math.cos(cam.pitch);
+    const sp = Math.sin(cam.pitch);
+    const x1 = wx * cy - wz * sy;
+    const z1 = wx * sy + wz * cy;
+    const y1 = wy * cp - z1 * sp;
+    const z2 = wy * sp + z1 * cp;
+    const depth = cam.dist + z2;
+    const f = FOCAL / Math.max(140, depth);
+    return {
+      x: innerWidth / 2 + x1 * f,
+      y: innerHeight / 2 + y1 * f,
+      f,
+      depth,
+    };
+  }
+
+  function frame(t) {
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    // 背景星尘
+    ctx.save();
+    ctx.globalAlpha = 0.5;
+    for (let i = 0; i < 140; i += 1) {
+      const x = (hash('bg' + i) % 1000) / 1000 * innerWidth;
+      const y = (hash('bgy' + i) % 1000) / 1000 * innerHeight;
+      const a = 0.05 + ((Math.sin(t / 2600 + i) + 1) / 2) * 0.12;
+      ctx.fillStyle = `rgba(150,180,255,${a})`;
+      ctx.fillRect(x, y, 1, 1);
+    }
+    ctx.restore();
+
+    const list = visiblePoints();
+    const pos = new Map();
+    for (const point of list) pos.set(point.id, project(point, t));
+    lastPos = pos;
+
+    // 远 → 近 排序，后画的压住先画的，才有纵深遮挡感
+    const order = list.slice().sort((a, b) => pos.get(b.id).depth - pos.get(a.id).depth);
+    const idx = new Set(list.map((p) => p.id));
+
+    // 线
+    ctx.lineWidth = 1;
+    for (const edge of edges) {
+      if (!idx.has(edge.a) || !idx.has(edge.b)) continue;
+      if (onlyFocus && !(focus.has(edge.a) && focus.has(edge.b))) continue;
+      const a = pos.get(edge.a);
+      const b = pos.get(edge.b);
+      const near = (a.f + b.f) * 0.5;
+      const alpha = Math.min(0.5, (0.03 + edge.score * 0.18) * near * 1.7);
+      ctx.strokeStyle = edge.kind === 'topic'
+        ? `rgba(120,170,255,${alpha})`
+        : `rgba(180,200,230,${alpha * 0.8})`;
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.stroke();
+    }
+
+    // 簇名：每个 cluster 取成员投影重心打一个淡标签
+    const groups = new Map();
+    for (const point of list) {
+      const key = point.cluster || point.topic || 'misc';
+      const p = pos.get(point.id);
+      const acc = groups.get(key) || { x: 0, y: 0, n: 0, near: 0 };
+      acc.x += p.x; acc.y += p.y; acc.n += 1; acc.near = Math.max(acc.near, p.f);
+      groups.set(key, acc);
+    }
+    ctx.font = '600 13px system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif';
+    ctx.textAlign = 'center';
+    for (const [key, acc] of groups) {
+      if (acc.n < 6) continue;
+      ctx.globalAlpha = (onlyFocus ? 0.12 : 0.5) * Math.min(1, acc.near * 1.5);
+      ctx.fillStyle = '#a9c0e6';
+      ctx.fillText(`${key} ${acc.n}`, acc.x / acc.n, acc.y / acc.n);
+    }
+    ctx.globalAlpha = 1;
+    ctx.textAlign = 'left';
+
+    // 点：远小近大、远淡近亮
+    for (const point of order) {
+      const p = pos.get(point.id);
+      const isFocus = focus.has(point.id);
+      const isSel = selected === point.id;
+      const isHover = hovered === point.id;
+      const [r, g, b] = point.diary ? DIARY_COLOR : (KIND_COLOR[point.kind] || KIND_COLOR.event);
+      const dim = onlyFocus && !isFocus;
+      const base = Math.max(0.8, point.radius * (isFocus ? 1.9 : 1) * p.f * 1.75);
+      ctx.globalAlpha = dim ? 0.1 : Math.min(1, 0.22 + p.f * 1.05);
+
+      if (isFocus || isHover || isSel) {
+        const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, base * 7);
+        glow.addColorStop(0, `rgba(${r},${g},${b},${isSel ? 0.55 : 0.35})`);
+        glow.addColorStop(1, `rgba(${r},${g},${b},0)`);
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, base * 7, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = `rgba(${r},${g},${b},${0.5 + 0.3 * Math.sin(t / 600)})`;
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, base * 3.2, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      ctx.fillStyle = `rgba(${r},${g},${b},${isFocus ? 1 : 0.85})`;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, Math.max(0.8, base), 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    // 每个点旁边标一句它是什么
+    drawPointLabels(list, pos, t);
+
+    // 悬停文字
+    if (hovered) {
+      const point = list.find((p) => p.id === hovered);
+      if (point) {
+        const p = pos.get(point.id);
+        const label = point.text.length > 24 ? point.text.slice(0, 24) + '…' : point.text;
+        ctx.font = '12px "Microsoft YaHei", sans-serif';
+        const width = ctx.measureText(label).width + 14;
+        ctx.fillStyle = 'rgba(8,11,20,.88)';
+        ctx.strokeStyle = 'rgba(120,160,255,.28)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.roundRect(p.x + 10, p.y - 22, width, 22, 6);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = '#dfe8ff';
+        ctx.fillText(label, p.x + 17, p.y - 7);
+      }
+    }
+
+    if (Date.now() - lastFetch > 60000) load(false);
+    requestAnimationFrame(frame);
+  }
+
+  // 每个点旁边标一句它是什么：按权重挑、按屏幕格子避让，缩放越大标得越多。
+  function drawPointLabels(list, pos, t) {
+    if (!showLabels) return;
+    const budget = Math.max(24, Math.min(280, Math.round(72 * (CAM_DEFAULT.dist / cam.dist))));
+    const rank = (p) => (focus.has(p.id) ? 4 : 0) + (p.id === selected ? 4 : 0) + (p.id === hovered ? 4 : 0) + (Number(p.weight) || 0);
+    const candidates = list
+      .filter((point) => {
+        if (!point.text || point.text.length < 2) return false;
+        const p = pos.get(point.id);
+        if (!p || p.f < 0.55) return false;   // 太远的点不标，留给近景
+        if (onlyFocus && focus.size) return focus.has(point.id) || point.id === hovered || point.id === selected;
+        return true;
+      })
+      .sort((a, b) => rank(b) - rank(a))
+      .slice(0, budget);
+
+    const occupied = new Set();
+    ctx.font = '11px system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif';
+    ctx.textAlign = 'left';
+    for (const point of candidates) {
+      const p = pos.get(point.id);
+      if (!p) continue;
+      const label = point.text.length > 14 ? `${point.text.slice(0, 14)}…` : point.text;
+      const w = ctx.measureText(label).width;
+      const x = Math.round(p.x + 7);
+      const y = Math.round(p.y - 5);
+      if (x + w > innerWidth - 4 || x < -2) continue;
+      const cell = `${Math.floor(x / 104)}:${Math.floor(y / 14)}`;
+      if (occupied.has(cell)) continue;
+      occupied.add(cell);
+      const hot = point.id === hovered || point.id === selected || focus.has(point.id);
+      ctx.globalAlpha = hot ? 0.95 : 0.42;
+      ctx.fillStyle = hot ? '#e6efff' : '#93a3c4';
+      ctx.fillText(label, x, y);
+      if (hot) {
+        ctx.globalAlpha = 0.4;
+        ctx.fillStyle = '#78aaff';
+        ctx.fillRect(x - 3, y - 9, 1.2, 11);
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function pick(mx, my) {
+    const now = performance.now();
+    let best = null;
+    let bestDist = 16;
+    for (const point of points) {
+      const p = lastPos.get(point.id) || project(point, now);
+      const dist = Math.hypot(p.x - mx, p.y - my);
+      if (dist < bestDist) { bestDist = dist; best = point; }
+    }
+    return best;
+  }
+
+  function showDetail(point) {
+    if (!point) { detail.classList.remove('on'); return; }
+    detail.classList.add('on');
+    document.getElementById('dKind').textContent = point.diary ? `她的日记 · ${point.diary.date}` : (KIND_LABEL[point.kind] || point.kind);
+    document.getElementById('dText').textContent = point.full || point.text;
+    const when = new Date(point.t);
+    document.getElementById('dTime').textContent = `${when.getMonth() + 1}/${when.getDate()} ${String(when.getHours()).padStart(2, '0')}:${String(when.getMinutes()).padStart(2, '0')}`;
+    document.getElementById('dTopic').textContent = `主题 ${point.cluster || point.topic}`;
+    document.getElementById('dSource').textContent = point.source?.type === 'diary' ? '来自她自己写的日记' : (point.source?.type === 'longterm' ? '来自长期记忆' : '来自真实消息');
+    document.getElementById('dTags').innerHTML = (point.keywords || []).map((k) => `<span>${k}</span>`).join('');
+  }
+
+  // 左键拖动 = 转整片海（三维），右键拖动 = 平移，滚轮 = 拉近拉远。
+  window.addEventListener('mousedown', (event) => {
+    if (event.button !== 0 && event.button !== 2) return;
+    if (event.target.closest && event.target.closest('button, a, input, textarea')) return;
+    event.preventDefault();
+    dragging = {
+      x: event.clientX,
+      y: event.clientY,
+      mode: event.button === 2 ? 'pan' : 'orbit',
+      yaw: cam.yaw,
+      pitch: cam.pitch,
+      panX: cam.panX,
+      panY: cam.panY,
+    };
+    dragMoved = false;
+    canvas.style.cursor = 'grabbing';
+  });
+  canvas.addEventListener('contextmenu', (event) => event.preventDefault());
+  window.addEventListener('mouseup', () => {
+    if (!dragging) return;
+    dragging = null;
+    canvas.style.cursor = 'grab';
+  });
+  window.addEventListener('mousemove', (event) => {
+    if (dragging) {
+      const dx = event.clientX - dragging.x;
+      const dy = event.clientY - dragging.y;
+      if (Math.hypot(dx, dy) > 4) dragMoved = true;
+      if (dragging.mode === 'orbit') {
+        cam.yaw = dragging.yaw + dx * 0.006;
+        cam.pitch = Math.max(-1.35, Math.min(1.35, dragging.pitch - dy * 0.006));
+      } else {
+        const k = cam.dist / FOCAL;
+        cam.panX = dragging.panX - dx * k;
+        cam.panY = dragging.panY - dy * k;
+      }
+      return;
+    }
+    if (event.target !== canvas) { hovered = null; return; }
+    const hit = pick(event.clientX, event.clientY);
+    hovered = hit ? hit.id : null;
+    canvas.style.cursor = hit ? 'pointer' : 'grab';
+  });
+  canvas.addEventListener('click', (event) => {
+    if (dragMoved) { dragMoved = false; return; }
+    const hit = pick(event.clientX, event.clientY);
+    selected = hit ? hit.id : null;
+    showDetail(hit);
+  });
+  canvas.addEventListener('wheel', (event) => {
+    event.preventDefault();
+    const factor = event.deltaY > 0 ? 1.08 : 0.92;
+    cam.dist = Math.min(3200, Math.max(380, cam.dist * factor));
+  }, { passive: false });
+
+  document.getElementById('btnFocus').addEventListener('click', (event) => {
+    onlyFocus = !onlyFocus;
+    event.currentTarget.classList.toggle('on', onlyFocus);
+  });
+  document.getElementById('btnLabels').addEventListener('click', (event) => {
+    showLabels = !showLabels;
+    event.currentTarget.classList.toggle('on', showLabels);
+  });
+  document.getElementById('btnRecent').addEventListener('click', (event) => {
+    const on = !event.currentTarget.classList.contains('on');
+    event.currentTarget.classList.toggle('on', on);
+    if (on && points.length > 300) {
+      points = points.slice(-300);
+      layout(points);
+      const ids = new Set(points.map((p) => p.id));
+      edges = edges.filter((e) => ids.has(e.a) && ids.has(e.b));
+    } else if (on === false) {
+      load(false);
+    }
+  });
+  document.getElementById('btnReset').addEventListener('click', () => { cam = { ...CAM_DEFAULT }; });
+
+  window.addEventListener('resize', resize);
+  resize();
+  load(true);
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

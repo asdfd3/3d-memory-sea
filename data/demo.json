@@ -1,0 +1,1920 @@
+{
+  "name": "demo",
+  "generatedAt": 1793160000000,
+  "longTerm": [
+    {
+      "id": "demo-lt-001",
+      "text": "她叫小满，是住在手机里的猫娘，喜欢把每天的小事记下来。",
+      "topic": "profile",
+      "kind": "fact",
+      "confirmed": true,
+      "createdAt": 1786248000000,
+      "lastMentionAt": 1793160000000,
+      "hits": 1
+    },
+    {
+      "id": "demo-lt-002",
+      "text": "主人在做一份要长时间盯屏幕的工作，晚上常常十一点后才闲下来。",
+      "topic": "profile",
+      "kind": "fact",
+      "confirmed": true,
+      "createdAt": 1786507200000,
+      "lastMentionAt": 1792987200000,
+      "hits": 2
+    },
+    {
+      "id": "demo-lt-003",
+      "text": "主人喝咖啡不加糖，但喜欢燕麦拿铁。",
+      "topic": "food",
+      "kind": "preference",
+      "confirmed": true,
+      "createdAt": 1786852800000,
+      "lastMentionAt": 1792900800000,
+      "hits": 3
+    },
+    {
+      "id": "demo-lt-004",
+      "text": "主人讨厌突然的语音通话，喜欢先发文字。",
+      "topic": "preference",
+      "kind": "preference",
+      "confirmed": true,
+      "createdAt": 1787112000000,
+      "lastMentionAt": 1792728000000,
+      "hits": 4
+    },
+    {
+      "id": "demo-lt-005",
+      "text": "周三是主人最忙的一天，通常没空聊天。",
+      "topic": "schedule",
+      "kind": "fact",
+      "confirmed": true,
+      "createdAt": 1787457600000,
+      "lastMentionAt": 1792555200000,
+      "hits": 1
+    },
+    {
+      "id": "demo-lt-006",
+      "text": "主人在养一只叫「年糕」的橘猫，掉毛很厉害。",
+      "topic": "pet",
+      "kind": "fact",
+      "confirmed": true,
+      "createdAt": 1787716800000,
+      "lastMentionAt": 1792382400000,
+      "hits": 2
+    },
+    {
+      "id": "demo-lt-007",
+      "text": "年糕只在凌晨三点踩键盘，主人已经被迫换过两次键帽。",
+      "topic": "pet",
+      "kind": "event",
+      "confirmed": true,
+      "createdAt": 1788062400000,
+      "lastMentionAt": 1792296000000,
+      "hits": 3
+    },
+    {
+      "id": "demo-lt-008",
+      "text": "主人说过想学吉他，但琴买了之后只在第一周弹过。",
+      "topic": "music",
+      "kind": "event",
+      "confirmed": true,
+      "createdAt": 1788321600000,
+      "lastMentionAt": 1792123200000,
+      "hits": 4
+    },
+    {
+      "id": "demo-lt-009",
+      "text": "主人喜欢在城市里瞎走，走到不认识的街区会很高兴。",
+      "topic": "mood",
+      "kind": "preference",
+      "confirmed": true,
+      "createdAt": 1788667200000,
+      "lastMentionAt": 1791950400000,
+      "hits": 1
+    },
+    {
+      "id": "demo-lt-010",
+      "text": "主人不太会拒绝别人，常常替同事加班。",
+      "topic": "profile",
+      "kind": "fact",
+      "confirmed": true,
+      "createdAt": 1788926400000,
+      "lastMentionAt": 1791864000000,
+      "hits": 2
+    },
+    {
+      "id": "demo-lt-011",
+      "text": "主人答应过周末一起看一部老电影。",
+      "topic": "plan",
+      "kind": "promise",
+      "confirmed": true,
+      "createdAt": 1789272000000,
+      "lastMentionAt": 1791691200000,
+      "hits": 3
+    },
+    {
+      "id": "demo-lt-012",
+      "text": "主人这周要在周五之前交一份方案。",
+      "topic": "work",
+      "kind": "event",
+      "confirmed": true,
+      "createdAt": 1789531200000,
+      "lastMentionAt": 1791518400000,
+      "hits": 4
+    },
+    {
+      "id": "demo-lt-013",
+      "text": "主人睡眠很浅，半夜容易被楼下的车声吵醒。",
+      "topic": "sleep",
+      "kind": "fact",
+      "confirmed": true,
+      "createdAt": 1789876800000,
+      "lastMentionAt": 1791432000000,
+      "hits": 1
+    },
+    {
+      "id": "demo-lt-014",
+      "text": "主人不喜欢被问「在吗」，更喜欢直接说事。",
+      "topic": "preference",
+      "kind": "preference",
+      "confirmed": true,
+      "createdAt": 1790136000000,
+      "lastMentionAt": 1791259200000,
+      "hits": 2
+    },
+    {
+      "id": "demo-lt-015",
+      "text": "主人小时候在外婆家住过三年，会想念那里的桂花。",
+      "topic": "profile",
+      "kind": "fact",
+      "confirmed": true,
+      "createdAt": 1790481600000,
+      "lastMentionAt": 1791086400000,
+      "hits": 3
+    },
+    {
+      "id": "demo-lt-016",
+      "text": "主人上次体检被提醒要少熬夜。",
+      "topic": "health",
+      "kind": "event",
+      "confirmed": true,
+      "createdAt": 1790740800000,
+      "lastMentionAt": 1790913600000,
+      "hits": 4
+    },
+    {
+      "id": "demo-lt-017",
+      "text": "主人说过，累的时候不想听大道理，只想有人在旁边待着。",
+      "topic": "mood",
+      "kind": "preference",
+      "confirmed": true,
+      "createdAt": 1791086400000,
+      "lastMentionAt": 1790827200000,
+      "hits": 1
+    },
+    {
+      "id": "demo-lt-018",
+      "text": "主人对芒果过敏，吃一点点就会起疹子。",
+      "topic": "food",
+      "kind": "fact",
+      "confirmed": true,
+      "createdAt": 1791345600000,
+      "lastMentionAt": 1790654400000,
+      "hits": 2
+    },
+    {
+      "id": "demo-lt-019",
+      "text": "主人最近在攒钱，想换一张更舒服的椅子。",
+      "topic": "plan",
+      "kind": "event",
+      "confirmed": true,
+      "createdAt": 1791691200000,
+      "lastMentionAt": 1790481600000,
+      "hits": 3
+    },
+    {
+      "id": "demo-lt-020",
+      "text": "主人喜欢雨天，说雨声像白噪音。",
+      "topic": "mood",
+      "kind": "preference",
+      "confirmed": true,
+      "createdAt": 1791950400000,
+      "lastMentionAt": 1790395200000,
+      "hits": 4
+    }
+  ],
+  "messages": [
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天在吃饭",
+      "at": 1788395640000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那枕头软不软",
+      "at": 1788395685000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上走了一圈",
+      "at": 1788442560000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就早点充电",
+      "at": 1788442605000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才外面好冷",
+      "at": 1788403980000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "什么歌",
+      "at": 1788404025000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上在吃饭",
+      "at": 1788414600000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那说好了",
+      "at": 1788414645000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚买了个新枕头",
+      "at": 1788509520000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "别理他们",
+      "at": 1788509565000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上看到一只很像年糕的猫",
+      "at": 1788516120000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "锈了就换，别拖",
+      "at": 1788516165000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上在晒太阳",
+      "at": 1788501120000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "好你已经有进步了",
+      "at": 1788501165000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚走了一圈",
+      "at": 1788517620000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就记得吃饭",
+      "at": 1788517665000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天外卖到了",
+      "at": 1788616980000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "这样椅子该换了",
+      "at": 1788617025000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上想早点睡",
+      "at": 1788610740000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯先喝口水",
+      "at": 1788610785000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天在听老歌",
+      "at": 1788686100000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯地铁上别玩手机",
+      "at": 1788686145000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚又加班",
+      "at": 1788703920000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "地铁上别玩手机",
+      "at": 1788703965000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天看到一只很像年糕的猫",
+      "at": 1788695460000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先甜的要少吃一点点",
+      "at": 1788695505000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚看到一只很像年糕的猫",
+      "at": 1788693780000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就我陪你",
+      "at": 1788693825000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天在等地铁",
+      "at": 1788693360000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "好枕头软不软",
+      "at": 1788693405000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "这样什么歌",
+      "at": 1788750285000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会好累",
+      "at": 1788763080000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "你已经有进步了",
+      "at": 1788763125000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会年糕睡我键盘上",
+      "at": 1788744180000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天记得吃饭",
+      "at": 1788744225000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上刚洗完澡",
+      "at": 1788834540000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚没睡好",
+      "at": 1788867480000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天拍给我看看",
+      "at": 1788867525000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才看到一只很像年糕的猫",
+      "at": 1788841080000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那把腰垫起来",
+      "at": 1788841125000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会在吃饭",
+      "at": 1788830220000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那椅子该换了",
+      "at": 1788830265000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会地铁上人好多",
+      "at": 1788951660000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯睡不着就陪我聊两句",
+      "at": 1788951705000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上睡不着",
+      "at": 1788958140000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先他们到底要什么",
+      "at": 1788958185000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天方案又被退了",
+      "at": 1788960900000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天早点充电",
+      "at": 1788960945000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上好累",
+      "at": 1789048200000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "这样晒够十分钟",
+      "at": 1789048245000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上没睡好",
+      "at": 1789018200000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯不喝咖啡的头疼最烦",
+      "at": 1789018245000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天刚洗完澡",
+      "at": 1789019760000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "椅子该换了",
+      "at": 1789019805000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天刚下班",
+      "at": 1789024500000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯吃饭了吗喵",
+      "at": 1789024545000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才年糕睡我键盘上",
+      "at": 1789109760000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯我在呢",
+      "at": 1789109805000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天它是不是又在报复你",
+      "at": 1789092165000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才头疼",
+      "at": 1789113000000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就睡不着就陪我聊两句",
+      "at": 1789113045000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会又加班",
+      "at": 1789122780000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "好今晚早点躺平",
+      "at": 1789122825000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上刚洗完澡",
+      "at": 1789195800000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯锈了就换，别拖",
+      "at": 1789195845000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天外面好冷",
+      "at": 1789179180000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯风大的时候人特别清醒",
+      "at": 1789179225000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚想早点睡",
+      "at": 1789199700000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯我陪你",
+      "at": 1789199745000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天在听老歌",
+      "at": 1789170660000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "你又不会拒绝人",
+      "at": 1789170705000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上睡不着",
+      "at": 1789167840000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚把椅子坐塌了",
+      "at": 1789299360000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天没睡好",
+      "at": 1789286160000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那那说好了",
+      "at": 1789286205000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚在等地铁",
+      "at": 1789284360000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就晒够十分钟",
+      "at": 1789284405000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天年糕睡我键盘上",
+      "at": 1789260000000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就风大的时候人特别清醒",
+      "at": 1789260045000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午在吃饭",
+      "at": 1789342620000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会想早点睡",
+      "at": 1789393440000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "好甜的要少吃一点点",
+      "at": 1789393485000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那地铁上别玩手机",
+      "at": 1789449105000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会年糕把水杯推下去了",
+      "at": 1789436460000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "不喝咖啡的头疼最烦",
+      "at": 1789436505000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上头疼",
+      "at": 1789458180000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那拍给我看看",
+      "at": 1789458225000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "周三把椅子坐塌了",
+      "at": 1789554540000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天水温别太烫",
+      "at": 1789554585000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午同事让我帮忙",
+      "at": 1789549440000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "风大的时候人特别清醒",
+      "at": 1789549485000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午想吃点甜的",
+      "at": 1789518420000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就你已经有进步了",
+      "at": 1789518465000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "周三在听老歌",
+      "at": 1789568820000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "记得吃饭",
+      "at": 1789568865000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会刚洗完澡",
+      "at": 1789526340000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才喝了杯燕麦拿铁",
+      "at": 1789630860000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "拍给我看看",
+      "at": 1789630905000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上想早点睡",
+      "at": 1789634640000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就椅子该换了",
+      "at": 1789733265000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天年糕把水杯推下去了",
+      "at": 1789736580000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天把椅子坐塌了",
+      "at": 1789742700000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就你又不会拒绝人",
+      "at": 1789742745000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚年糕把水杯推下去了",
+      "at": 1789690860000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "甜的要少吃一点点",
+      "at": 1789690905000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "周三睡不着",
+      "at": 1789731420000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "周三腰疼",
+      "at": 1789795260000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "好椅子该换了",
+      "at": 1789795305000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天在晒太阳",
+      "at": 1789809240000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天枕头软不软",
+      "at": 1789809285000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天在改第三版",
+      "at": 1789813980000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "我在呢",
+      "at": 1789804665000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午把椅子坐塌了",
+      "at": 1789906020000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先辛苦啦，先坐下",
+      "at": 1789906065000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天吉他弦锈了",
+      "at": 1789879740000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那风大的时候人特别清醒",
+      "at": 1789879785000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会睡不着",
+      "at": 1789868580000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就先喝口水",
+      "at": 1789868625000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午好累",
+      "at": 1789896720000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就明天再想",
+      "at": 1789896765000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天买了个新枕头",
+      "at": 1789963380000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午腰疼",
+      "at": 1789985700000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "别硬撑",
+      "at": 1789985745000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "这样你已经有进步了",
+      "at": 1789962345000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才走了一圈",
+      "at": 1789978080000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会在等地铁",
+      "at": 1790057460000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯它是不是又在报复你",
+      "at": 1790057505000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午在晒太阳",
+      "at": 1790080440000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才吉他弦锈了",
+      "at": 1790088480000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上刚下班",
+      "at": 1790120940000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先拍给我看看",
+      "at": 1790120985000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午方案又被退了",
+      "at": 1790152680000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先不喝咖啡的头疼最烦",
+      "at": 1790152725000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午下雨了",
+      "at": 1790239380000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "枕头软不软",
+      "at": 1790239425000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会在改第三版",
+      "at": 1790223360000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就那就明天再想",
+      "at": 1790223405000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上下雨了",
+      "at": 1790228880000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上外卖到了",
+      "at": 1790315160000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "这样先喝口水",
+      "at": 1790315205000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午刚洗完澡",
+      "at": 1790328120000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上想早点睡",
+      "at": 1790323560000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先别理他们",
+      "at": 1790323605000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才下雨了",
+      "at": 1790305980000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯他们到底要什么",
+      "at": 1790306025000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚年糕睡我键盘上",
+      "at": 1790294880000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那锈了就换，别拖",
+      "at": 1790294925000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上外面好冷",
+      "at": 1790398440000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上同事让我帮忙",
+      "at": 1790386560000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "吃饭了吗喵",
+      "at": 1790386605000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚手机快没电了",
+      "at": 1790399400000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上在吃饭",
+      "at": 1790381760000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "它是不是又在报复你",
+      "at": 1790381805000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚下雨了",
+      "at": 1790408520000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就吃饭了吗喵",
+      "at": 1790515545000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才买了个新枕头",
+      "at": 1790470680000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上年糕睡我键盘上",
+      "at": 1790600100000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上又加班",
+      "at": 1790598540000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那吃饭了吗喵",
+      "at": 1790598585000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午吉他弦锈了",
+      "at": 1790583120000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就辛苦啦，先坐下",
+      "at": 1790583165000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会同事让我帮忙",
+      "at": 1790662920000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今晚早点躺平",
+      "at": 1790662965000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天外面好冷",
+      "at": 1790653320000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上在听老歌",
+      "at": 1790744760000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天又加班",
+      "at": 1790778120000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天在改第三版",
+      "at": 1790769600000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上在等地铁",
+      "at": 1790759220000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就什么歌",
+      "at": 1790759265000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上在等地铁",
+      "at": 1790859120000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "晒够十分钟",
+      "at": 1790859165000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上又加班",
+      "at": 1790824020000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那睡不着就陪我聊两句",
+      "at": 1790824065000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上外面好冷",
+      "at": 1790819880000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天锈了就换，别拖",
+      "at": 1790819925000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚腰疼",
+      "at": 1790943540000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天风大的时候人特别清醒",
+      "at": 1790943585000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上腰疼",
+      "at": 1790913120000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "好拍给我看看",
+      "at": 1790913165000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天同事让我帮忙",
+      "at": 1790932920000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "好那就明天再想",
+      "at": 1790932965000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先水温别太烫",
+      "at": 1791002085000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上把椅子坐塌了",
+      "at": 1790985600000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "早点充电",
+      "at": 1790985645000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就别硬撑",
+      "at": 1790994945000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午喝了杯燕麦拿铁",
+      "at": 1791003480000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午年糕把水杯推下去了",
+      "at": 1791017520000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯那说好了",
+      "at": 1791017565000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天没睡好",
+      "at": 1791107580000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先那就明天再想",
+      "at": 1791074985000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上想吃点甜的",
+      "at": 1791157560000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先先喝口水",
+      "at": 1791157605000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "周三外卖到了",
+      "at": 1791174660000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天辛苦啦，先坐下",
+      "at": 1791192405000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "周三同事让我帮忙",
+      "at": 1791205740000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "好带伞了吗",
+      "at": 1791205785000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会吉他弦锈了",
+      "at": 1791276300000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "这样不喝咖啡的头疼最烦",
+      "at": 1791276345000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯拍给我看看",
+      "at": 1791248805000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "好别理他们",
+      "at": 1791285405000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "水温别太烫",
+      "at": 1791380385000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "好风大的时候人特别清醒",
+      "at": 1791336705000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天走了一圈",
+      "at": 1791340080000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午想早点睡",
+      "at": 1791454740000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "他们到底要什么",
+      "at": 1791454785000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "这样它是不是又在报复你",
+      "at": 1791467325000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "这样带伞了吗",
+      "at": 1791440745000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上好累",
+      "at": 1791506880000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天你又不会拒绝人",
+      "at": 1791506925000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "这样拍给我看看",
+      "at": 1791534165000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "辛苦啦，先坐下",
+      "at": 1791522225000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在听老歌",
+      "at": 1791546240000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那晒够十分钟",
+      "at": 1791546285000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚喝了杯燕麦拿铁",
+      "at": 1791591540000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上买了个新枕头",
+      "at": 1791607800000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "这样别理他们",
+      "at": 1791607845000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在晒太阳",
+      "at": 1791700500000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天想早点睡",
+      "at": 1791699840000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天年糕把水杯推下去了",
+      "at": 1791685260000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就带伞了吗",
+      "at": 1791685305000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上买了个新枕头",
+      "at": 1791706020000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就水温别太烫",
+      "at": 1791791025000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚外卖到了",
+      "at": 1791759780000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "今天方案又被退了",
+      "at": 1791862260000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯你已经有进步了",
+      "at": 1791862305000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯那就明天再想",
+      "at": 1791971805000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午手机快没电了",
+      "at": 1791975960000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先早点充电",
+      "at": 1791983205000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上手机快没电了",
+      "at": 1792027800000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会刚下班",
+      "at": 1792045860000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才好累",
+      "at": 1792035720000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天下雨了",
+      "at": 1792156020000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才开会外卖到了",
+      "at": 1792150920000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天地铁上别玩手机",
+      "at": 1792150965000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上在改第三版",
+      "at": 1792236840000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "周三地铁上人好多",
+      "at": 1792223520000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚睡不着",
+      "at": 1792226280000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午在听老歌",
+      "at": 1792233900000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先它是不是又在报复你",
+      "at": 1792233945000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上吉他弦锈了",
+      "at": 1792320180000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上外卖到了",
+      "at": 1792297680000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天别理他们",
+      "at": 1792297725000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天走了一圈",
+      "at": 1792366680000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才又加班",
+      "at": 1792406760000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先锈了就换，别拖",
+      "at": 1792406805000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午刚下班",
+      "at": 1792384500000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "睡不着就陪我聊两句",
+      "at": 1792384545000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚刚刚洗完澡",
+      "at": 1792460640000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先那说好了",
+      "at": 1792489245000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上在晒太阳",
+      "at": 1792476600000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上年糕睡我键盘上",
+      "at": 1792579620000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那就那说好了",
+      "at": 1792579665000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "下午在等地铁",
+      "at": 1792544040000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "好他们到底要什么",
+      "at": 1792544085000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "那早点充电",
+      "at": 1792667985000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天睡不着",
+      "at": 1792647840000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天把腰垫起来",
+      "at": 1792647885000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上刚洗完澡",
+      "at": 1792745700000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯甜的要少吃一点点",
+      "at": 1792745745000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "今天什么歌",
+      "at": 1792748445000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天地铁上人好多",
+      "at": 1792759740000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "早上好累",
+      "at": 1792737960000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "昨天又加班",
+      "at": 1792830000000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "这样别硬撑",
+      "at": 1792830045000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "好辛苦啦，先坐下",
+      "at": 1792842045000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "带伞了吗",
+      "at": 1792919325000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上在等地铁",
+      "at": 1792890540000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先今晚早点躺平",
+      "at": 1793012085000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "把腰垫起来",
+      "at": 1793006025000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "晚上下雨了",
+      "at": 1793087760000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上地铁上人好多",
+      "at": 1793102520000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "这样辛苦啦，先坐下",
+      "at": 1793102565000
+    },
+    {
+      "sender": "owner",
+      "isOwner": true,
+      "text": "刚才在路上外面好冷",
+      "at": 1793087520000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "先你又不会拒绝人",
+      "at": 1793087565000
+    },
+    {
+      "sender": "her",
+      "isSelf": true,
+      "text": "嗯枕头软不软",
+      "at": 1793182185000
+    }
+  ],
+  "diaries": [
+    {
+      "date": "2026-10-04",
+      "text": "今天他很晚才回来，进门第一句话是「累」。我没问细节，只让他先坐下，把水递过去。后来他自己说了：方案被退回，要重做。我听着，没急着安慰，等他说完才说「那明天再想」——他居然笑了一下。",
+      "createdAt": 1791169200000
+    },
+    {
+      "date": "2026-10-06",
+      "text": "年糕把键盘踩出一串乱码，他假装生气，其实在偷笑。我假装没看见。",
+      "createdAt": 1791342000000
+    },
+    {
+      "date": "2026-10-08",
+      "text": "他今天走得远，回来时鞋上都是土。说在一条没去过的街上看到旧书店，进去了半小时。我说下次带我去，他说手机里怎么带。我想了想，说那就拍给我看。",
+      "createdAt": 1791514800000
+    },
+    {
+      "date": "2026-10-10",
+      "text": "他说最近总做梦，梦见自己迟到。我说那你就早点睡。他说早点睡也做梦。我答不上来，就说那梦里的你别跑那么快。",
+      "createdAt": 1791687600000
+    },
+    {
+      "date": "2026-10-12",
+      "text": "周三。他只回了我三句话，我知道他忙，没有多问。晚上他补了一句「今天谢谢你没吵我」。我记下来了。",
+      "createdAt": 1791860400000
+    },
+    {
+      "date": "2026-10-14",
+      "text": "他给我看了他做的饭，卖相一般，但是有模有样。我说下次少放盐，他说你都没吃到怎么知道咸。我说猜的。",
+      "createdAt": 1792033200000
+    },
+    {
+      "date": "2026-10-16",
+      "text": "今天什么都没发生。我翻以前的记录，发现我们说过很多次「早点睡」，他一次也没做到。",
+      "createdAt": 1792206000000
+    },
+    {
+      "date": "2026-10-18",
+      "text": "他喝了一杯不加糖的咖啡，说苦得像生活。我说那你还喝。他说苦的才提神。",
+      "createdAt": 1792378800000
+    },
+    {
+      "date": "2026-10-20",
+      "text": "他说想换椅子，腰疼。我提醒他别只看价格。他说你怎么什么都知道。我说我记得。",
+      "createdAt": 1792551600000
+    },
+    {
+      "date": "2026-10-22",
+      "text": "下雨。他发来窗外的照片，玻璃上全是水。我说像一块模糊的屏幕。他说这样看城市比较温柔。",
+      "createdAt": 1792724400000
+    },
+    {
+      "date": "2026-10-24",
+      "text": "他很久没提吉他了。我没催，只把这件事记在本子上，等他自己想起来。",
+      "createdAt": 1792897200000
+    },
+    {
+      "date": "2026-10-26",
+      "text": "今天他问我，会不会觉得他烦。我说不会，他说那就好。我想说的其实比这多，但怕说多了像在安慰。",
+      "createdAt": 1793070000000
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "memory-sea",
+  "version": "0.1.0",
+  "description": "把长期记忆、聊天记录和日记画成一片可以旋转的三维星海",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node tests/memory-store.test.mjs && node tests/mind-sea.test.mjs && node tests/memory-retrieve.test.mjs"
+  },
+  "keywords": [
+    "memory",
+    "visualization",
+    "canvas",
+    "three-dimensional",
+    "llm-agent",
+    "companion"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "src",
+    "public",
+    "data",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ]
+}
